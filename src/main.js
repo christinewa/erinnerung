@@ -50,7 +50,7 @@ const state = {
 
 // ---------- start / end ----------
 function refreshSongStatus() {
-  if (song.missing) hud.setSongStatus('no track in public/audio/reminder.mp3 · playing in silence');
+  if (song.missing) hud.setSongStatus('');
   else if (song.ready) hud.setSongStatus('track loaded', 'green');
   else hud.setSongStatus('loading track…');
 }
@@ -62,7 +62,6 @@ hud.screen.addEventListener('click', async () => {
     state.started = true;
     await song.start();
     hud.hideScreen();
-    hud.say('Harvest. Offer. Endure.', 3.5);
   }
   player.lock();
 });
@@ -76,7 +75,7 @@ function endRun() {
   shrine.light.intensity = 0;
   const t = Math.floor(state.elapsed);
   const lines = [
-    `<h1>REMINDER</h1>`,
+    `<h1 aria-label="Reminder">◬ ⌇ ◈ ⌇ ◬</h1>`,
     `<div>THE SKY IS EMPTY</div>`,
     `<div class="dim">OFFERED ${state.delivered} · HIT ${state.hits} TIMES · DODGED ${state.dodges}</div>`,
     `<div class="dim">${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}</div>`,
