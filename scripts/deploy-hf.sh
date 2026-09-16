@@ -46,7 +46,7 @@ drones, earn the mask, and empty the sky.
 
 WASD move · SHIFT run · mouse look · E takes the mask · CLICK strikes with it.
 
-Runs on a silent timer — no soundtrack ships with it.
+Soundtrack: "Destructive Momentum", by the author.
 CARD
 
 cd "$STAGE"

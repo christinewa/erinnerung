@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Optionally drop a track into `public/audio/reminder.mp3`. It loops in the background and the film grain breathes with it. The game does not depend on it.
+Optionally drop a track into `public/audio/soundtrack.mp3`. It loops in the background and the film grain breathes with it. The game does not depend on it.
 
 ## Controls
 

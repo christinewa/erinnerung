@@ -1,4 +1,3 @@
-Drop the track here as `reminder.mp3` (or edit `src/config.js` -> `songSrc`).
-
-The audio file is git-ignored on purpose: the game plays it locally but never ships it.
-If no file is found, the game runs on a silent timer of the same length.
+The game looks for `soundtrack.mp3` here (path set in `src/config.js` -> `songSrc`).
+It loops in the background; the film grain and drone speed breathe with its low end.
+If the file is missing, the game runs in silence.

@@ -13,3 +13,6 @@ public/audio/*.m4a
 public/audio/*.wav
 public/audio/*.ogg
 public/audio/*.flac
+
+# your own track ships with the game
+!public/audio/soundtrack.mp3

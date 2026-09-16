@@ -1,6 +1,6 @@
 export const CONFIG = {
   // Optional. If a file is here it loops in the background and the grain breathes with it. Not required.
-  songSrc: `${import.meta.env.BASE_URL}audio/reminder.mp3`,
+  songSrc: `${import.meta.env.BASE_URL}audio/soundtrack.mp3`,
 
   worldRadius: 240,
   terrainSize: 620,
