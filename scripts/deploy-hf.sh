@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build REMINDER and publish dist/ to a Hugging Face static Space.
+# Build ERINNERUNG and publish dist/ to a Hugging Face static Space.
 #
 #   ./scripts/deploy-hf.sh <user>/<space>
 #
@@ -27,7 +27,7 @@ cp -R dist/. "$STAGE"/
 # site; everything under it is the description shown on the Space page.
 cat > "$STAGE/README.md" <<'CARD'
 ---
-title: REMINDER
+title: ERINNERUNG
 emoji: 🎭
 colorFrom: gray
 colorTo: green
@@ -36,7 +36,7 @@ app_file: index.html
 pinned: false
 ---
 
-# REMINDER
+# ERINNERUNG
 
 A browser game built with Three.js, in the spirit of the visuals from the
 Moderat "Reminder" video (SEHSUCHT Berlin / Pfadfinderei, dir. Mate Steinforth).
@@ -53,7 +53,7 @@ cd "$STAGE"
 git init -q
 git checkout -q -b main
 git add -A
-git commit -q -m "Deploy REMINDER"
+git commit -q -m "Deploy ERINNERUNG"
 git push -q --force "https://huggingface.co/spaces/$SPACE" main
 
 echo "deployed -> https://huggingface.co/spaces/$SPACE"

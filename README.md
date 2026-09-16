@@ -1,4 +1,4 @@
-# REMINDER
+# ERINNERUNG
 
 A playable version of the Moderat "Reminder" music video (SEHSUCHT Berlin / Pfadfinderei, dir. Mate Steinforth), built in the browser with Three.js.
 
@@ -44,7 +44,7 @@ host as-is. For Hugging Face Spaces:
 
 ```
 hf auth login              # once, installs the git credential helper
-npm run deploy your-name/reminder
+npm run deploy your-name/erinnerung
 ```
 
 Create the Space first at huggingface.co/new-space with SDK **Static**. Static
