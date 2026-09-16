@@ -75,11 +75,10 @@ function endRun() {
   shrine.light.intensity = 0;
   const t = Math.floor(state.elapsed);
   const lines = [
-    `<h1 aria-label="Erinnerung">◬ ⌇ ◈ ⌇ ◬</h1>`,
     `<div>THE SKY IS EMPTY</div>`,
     `<div class="dim">OFFERED ${state.delivered} · HIT ${state.hits} TIMES · DODGED ${state.dodges}</div>`,
     `<div class="dim">${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}</div>`,
-    `<div style="margin-top:18px">CLICK TO RUN IT AGAIN</div>`,
+    `<div style="margin-top:18px">CLICK TO PLAY AGAIN</div>`,
   ];
   hud.showOutro(lines.join(''));
 }

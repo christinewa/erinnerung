@@ -39,16 +39,11 @@ Everything worth tweaking lives in `src/config.js`: carry limit, drone count, wh
 
 ## Hosting
 
-The build is a static bundle with a relative base, so it drops onto any static
-host as-is. For Hugging Face Spaces:
-
 ```
-hf auth login              # once, installs the git credential helper
-npm run deploy your-name/erinnerung
+npm run build
 ```
 
-Create the Space first at huggingface.co/new-space with SDK **Static**. Static
-Spaces do not run a build step, so `scripts/deploy-hf.sh` builds locally and
-force-pushes `dist/` as the Space repo root, along with a Space card.
+The build is a static bundle with a relative base, so `dist/` drops onto any
+static host as-is, at a domain root or under a subpath.
 
 The track is never part of the build. Hosted runs use the silent timer.
