@@ -1,0 +1,15 @@
+node_modules
+dist
+.DS_Store
+.vite
+*.log
+npm-debug.log*
+.env
+.env.local
+.vscode
+.idea
+public/audio/*.mp3
+public/audio/*.m4a
+public/audio/*.wav
+public/audio/*.ogg
+public/audio/*.flac

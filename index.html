@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>REMINDER</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+    body { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: #e8e8e8; letter-spacing: 0.12em; text-transform: uppercase; font-size: 12px; }
+    canvas { display: block; }
+    #hud { position: fixed; inset: 0; pointer-events: none; }
+    .corner { position: absolute; padding: 18px 20px; opacity: 0.85; line-height: 1.8; }
+    #tl { top: 0; left: 0; }
+    #tr { top: 0; right: 0; text-align: right; }
+    #bl { bottom: 0; left: 0; }
+    #msg { position: absolute; left: 50%; bottom: 14%; transform: translateX(-50%); opacity: 0; transition: opacity .25s; white-space: nowrap; font-size: 13px; }
+    #msg.show { opacity: 0.95; }
+    #flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+    #tint { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(58,255,106,0) 40%, rgba(58,255,106,0.22) 100%); opacity: 0; transition: opacity 1s; }
+    #cross { position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px; border: 1px solid rgba(255,255,255,0.7); border-radius: 50%; }
+    #screen { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.78); cursor: pointer; }
+    #screen .box { text-align: center; line-height: 2.2; max-width: 560px; padding: 24px; }
+    #screen h1 { font-size: 34px; letter-spacing: 0.5em; margin: 0 0 18px; font-weight: 400; }
+    #screen .dim { opacity: 0.55; }
+    #screen.hidden { display: none; }
+    .green { color: #3aff6a; }
+  </style>
+</head>
+<body>
+  <div id="hud">
+    <div id="tl" class="corner"><div>CRYSTALS <span id="carried">0</span>/<span id="limit">5</span></div><div>OFFERED <span id="delivered">0</span></div></div>
+    <div id="tr" class="corner"><div id="clock">0:00</div></div>
+    <div id="bl" class="corner dim"><div id="hint"></div></div>
+    <div id="msg"></div>
+    <div id="tint"></div>
+    <div id="flash"></div>
+    <div id="cross"></div>
+  </div>
+  <div id="screen">
+    <div class="box">
+      <h1>REMINDER</h1>
+      <div id="intro">
+        <div>Harvest crystals. Carry them to the shrine.</div>
+        <div>Earn the mask. Empty the sky.</div>
+        <div class="dim">When one hangs in the air and its eye flickers, it has locked on. Move.</div>
+        <div class="dim" style="margin-top:14px">WASD move &nbsp;·&nbsp; SHIFT run &nbsp;·&nbsp; walk over crystals to take them</div>
+        <div class="dim">E to take the mask &nbsp;·&nbsp; CLICK to strike with it</div>
+        <div id="songstatus" class="dim" style="margin-top:14px">checking for the track…</div>
+        <div style="margin-top:18px">CLICK TO BEGIN</div>
+      </div>
+      <div id="outro" style="display:none"></div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
