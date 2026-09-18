@@ -3,7 +3,7 @@ import { CONFIG } from './config.js';
 import { createTerrain, createCrystals, createShrine, placeCrystal, takeCrystal, terrainHeight, RED, GREEN } from './world.js';
 import { Player } from './player.js';
 import { Drones } from './drones.js';
-import { Song } from './audio.js';
+import { Song, Score } from './audio.js';
 import { createPost } from './post.js';
 import { HUD } from './hud.js';
 
@@ -39,7 +39,7 @@ const crystals = createCrystals(scene);
 const shrine = createShrine(scene);
 const drones = new Drones(scene);
 const player = new Player(camera, renderer.domElement);
-const song = new Song();
+const song = CONFIG.music === 'score' ? new Score() : new Song();
 const post = createPost(renderer, scene, camera);
 const hud = new HUD();
 
@@ -49,6 +49,8 @@ const state = {
 };
 
 // ---------- start / end ----------
+// ?skip=mask starts the run with the mask already taken, for working on the last act
+const SKIP = new URLSearchParams(location.search).get('skip');
 function refreshSongStatus() {
   if (song.missing) hud.setSongStatus('');
   else if (song.ready) hud.setSongStatus('track loaded', 'green');
@@ -62,10 +64,10 @@ hud.screen.addEventListener('click', async () => {
     state.started = true;
     await song.start();
     hud.hideScreen();
+    if (SKIP === 'mask') takeMask();
   }
   player.lock();
 });
-player.controls.addEventListener('unlock', () => { if (!state.over) hud.hint = 'click to resume'; });
 renderer.domElement.addEventListener('click', () => { if (state.started && !player.locked) player.lock(); });
 
 function endRun() {
@@ -153,6 +155,7 @@ function frame() {
 function step(dt) {
   now += dt;
   song.update(dt);
+  song.follow({ progress: Math.min(1, state.delivered / CONFIG.maskThreshold), mask: state.hasMask, over: state.over });
 
   if (state.started && !state.over) {
     if (player.locked) player.update(dt);

@@ -1,4 +1,6 @@
 export const CONFIG = {
+  // 'score' is the generative Strudel soundtrack (src/score.js), which follows the run. 'file' loops songSrc instead.
+  music: 'score',
   // Optional. If a file is here it loops in the background and the grain breathes with it. Not required.
   songSrc: `${import.meta.env.BASE_URL}audio/soundtrack.mp3`,
 
