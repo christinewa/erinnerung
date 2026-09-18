@@ -120,7 +120,7 @@ export class Score extends Track {
     this.cue = cue;
     if (!this.analyser || this.missing) return;
     // note the bar each act begins on, so its arrangement plays from the top
-    const act = `${cue.mask}|${cue.over}`;
+    const act = String(cue.mask);
     if (act !== this.act) { this.act = act; this.at = Math.ceil(this.repl.scheduler.now()); }
     const code = compose({ ...cue, at: this.at });
     if (code === this.key) return;

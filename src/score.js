@@ -2,10 +2,8 @@
 // it in on the next cycle. All synths, no samples, so nothing is fetched at runtime.
 //   progress  0..1, offerings towards the mask
 //   mask      the mask is taken and the whole swarm is loose
-//   over      the sky is empty
 //   at        the cycle this act began on, so long forms start from their first bar
 export function score(cue = {}) {
-  if (cue.over) return aftermath();
   return cue.mask ? hunt(cue.at) : harvest(cue.progress ?? 0);
 }
 
@@ -46,7 +44,7 @@ ${out(layers)}
 
 // The mask is on and everything is coming. Club drums under something wider and sadder: a wall of
 // detuned saws gated so it pumps against the kick, vowel chops in a long delay, risers and booms.
-// It runs as a 32 bar form, counted from the bar the mask was taken (at):
+// It carries on over the end screen. It runs as a 32 bar form, counted from the bar the mask was taken (at):
 //    1-8   groove          kick, bass, wall half open, first chop line
 //    9-16  lift            clap, rim and open hats join, wall opens further
 //   17-20  breakdown       drums and bass out, the chords held as a pad, chops alone
@@ -113,15 +111,5 @@ const chops = stack(chopsA, chopsB)
   .delay(.7).delaytime(.363).delayfeedback(.6).room(.8).size(8).gain(.35)
 stack(kick, ghost, boom, clap, rim, hats, riser, bass, wall, held, high, hook, chops)
   .late(${at}).analyze(1).fft(4)
-`;
-}
-
-// The sky is empty.
-function aftermath() {
-  return `
-setcpm(118/4)
-const pad = ${pad(300, 1200, 0.45)}
-const crystals = ${crystals}
-${out(['pad', 'crystals'])}
 `;
 }

@@ -155,7 +155,7 @@ function frame() {
 function step(dt) {
   now += dt;
   song.update(dt);
-  song.follow({ progress: Math.min(1, state.delivered / CONFIG.maskThreshold), mask: state.hasMask, over: state.over });
+  song.follow({ progress: Math.min(1, state.delivered / CONFIG.maskThreshold), mask: state.hasMask });
 
   if (state.started && !state.over) {
     if (player.locked) player.update(dt);

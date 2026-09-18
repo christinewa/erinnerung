@@ -13,7 +13,7 @@ npm run dev
 
 ## Music
 
-The soundtrack is generated live with [Strudel](https://strudel.cc) from the pattern in `src/score.js`: a pad, a sub pulse and sparse crystal notes while you harvest, a muffled broken kick from the first offering that opens up (with hats) as the mask approaches, then four on the floor once the mask is taken, under a pumping wall of saws that opens over sixteen bars, with vowel chops, risers and booms, arranged as a 32 bar form (groove, lift, breakdown, build, peak) that starts when you take the mask, and the pad alone when the sky is empty. It is all synths, so nothing is fetched at runtime, and the film grain breathes with it.
+The soundtrack is generated live with [Strudel](https://strudel.cc) from the pattern in `src/score.js`: a pad, a sub pulse and sparse crystal notes while you harvest, a muffled broken kick from the first offering that opens up (with hats) as the mask approaches, then four on the floor once the mask is taken, under a pumping wall of saws that opens over sixteen bars, with vowel chops, risers and booms, arranged as a 32 bar form (groove, lift, breakdown, build, peak) that starts when you take the mask and plays on over the end screen. It is all synths, so nothing is fetched at runtime, and the film grain breathes with it.
 
 To work on the last act, open `/?skip=mask`: the run starts with the mask already taken. With the dev server running, saving `src/score.js` swaps the music in place without a reload.
 
